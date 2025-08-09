@@ -1,0 +1,38 @@
+spring:
+
+  application:
+    name: social
+  datasource:
+    url: jdbc:mysql://103.38.83.156:3306/blog
+    username: blog
+    password: AJKWHpBGHMbpJ2Gn
+    # username: root
+    # password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 20MB       # 单个文件最大 20MB
+      max-request-size: 50MB    # 请求总大小最大 50MB
+  config:
+    import: optional:classpath:application-secret.yml
+server:
+    port: 8083
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sky.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      x:
+        mapper: debug
+        service: info
+        controller: info
+
+
+
+
